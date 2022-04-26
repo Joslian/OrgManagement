@@ -1,0 +1,72 @@
+﻿<mah:MetroWindow x:Class="OrgManagement.Views.JoinView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:vm="clr-namespace:OrgManagement.ViewModels"
+        xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+        xmlns:local="clr-namespace:OrgManagement.Views"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        Title="Регистрация"
+        Height="375"
+        Width="640">
+    <Window.DataContext>
+        <vm:JoinViewModel />
+    </Window.DataContext>
+    <Grid>
+        <TextBlock
+            Margin="220,44,0,0"
+            HorizontalAlignment="Left"
+            Text="Логин"
+            VerticalAlignment="Top" />
+
+        <TextBox
+            Margin="220,65,0,0"
+            Width="195"
+            Height="29"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            VerticalContentAlignment="Center"
+            Text="{Binding Login}" />
+
+        <TextBlock
+            Margin="220,110,0,0"
+            HorizontalAlignment="Left"
+            Text="Пароль"
+            VerticalAlignment="Top" />
+
+        <PasswordBox
+            Margin="220,131,0,0"
+            Width="195"
+            Height="29"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            VerticalContentAlignment="Center"
+            PasswordChanged="PasswordBox_PasswordChanged"/>
+
+        <TextBlock
+            Margin="220,172,0,0"
+            HorizontalAlignment="Left"
+            Text="Повторите пароль"
+            VerticalAlignment="Top" />
+
+        <PasswordBox
+            Margin="220,193,0,0"
+            Width="195"
+            Height="29"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            VerticalContentAlignment="Center"
+            PasswordChanged="PasswordBox_RepasswordChanged"/>
+
+        <Button
+            Content="Зарегистрироваться"
+            HorizontalAlignment="Left"
+            Margin="220,0,0,50"
+            Width="195" Height="37"
+            VerticalAlignment="Bottom"
+            Command="{Binding JoinCommand}" />
+
+    </Grid>
+</mah:MetroWindow>

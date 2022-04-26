@@ -1,0 +1,69 @@
+﻿<mah:MetroWindow x:Class="OrgManagement.Views.AuthView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+        xmlns:vm="clr-namespace:OrgManagement.ViewModels"
+        xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+        xmlns:local="clr-namespace:OrgManagement.Views"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        Title="Авторизация"
+        Height="375"
+        Width="640">
+    <Window.DataContext>
+        <vm:AuthViewModel />
+    </Window.DataContext>
+    <Grid>
+        <TextBlock
+            Margin="220,44,0,0"
+            HorizontalAlignment="Left"
+            Text="Логин"
+            VerticalAlignment="Top" />
+
+        <TextBox
+            Margin="220,65,0,0"
+            Width="195"
+            Height="29"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            VerticalContentAlignment="Center"
+            Text="{Binding Login}" />
+
+        <TextBlock
+            Margin="220,108,0,0"
+            HorizontalAlignment="Left"
+            Text="Пароль"
+            VerticalAlignment="Top" />
+
+        <PasswordBox
+            Margin="220,129,0,0"
+            Width="195"
+            Height="29"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            VerticalContentAlignment="Center"
+            PasswordChanged="PasswordBox_PasswordChanged">
+        </PasswordBox>
+
+        <Button
+            Content="Войти"
+            HorizontalAlignment="Left"
+            Margin="220,179,0,0"
+            VerticalAlignment="Top"
+            Height="37"
+            Width="195"
+            Command="{Binding AuthCommand}" />
+
+        <Button
+            Content="Регистрация"
+            HorizontalAlignment="Left"
+            Margin="220,0,0,25"
+            VerticalAlignment="Bottom"
+            Height="37"
+            Width="195"
+            Command="{Binding ShowJoinCommand}" />
+
+    </Grid>
+</mah:MetroWindow>
