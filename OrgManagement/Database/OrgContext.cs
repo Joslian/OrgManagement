@@ -8,6 +8,8 @@ namespace OrgManagement.Database
     {
         public DbSet<Admin> Admins { get; set; }
         public DbSet<Employee> Employees { get; set; }
+        public DbSet<Department> Departments { get; set; }
+        public DbSet<Post> Posts { get; set; }
 
         public OrgContext()
         {
@@ -17,6 +19,10 @@ namespace OrgManagement.Database
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlite("Filename=orgdb.sqlite");
+        }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
         }
     }
 }

@@ -8,41 +8,169 @@
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
         Title="OrgManagement"
-        Height="450"
-        Width="800">
+        Height="545"
+        Width="1050">
     <Grid>
-        <DataGrid
-            x:Name="DataGridEmployees"
-            Margin="10,10,10,50"
-            AutoGenerateColumns="False">
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="Фамилия" Binding="{Binding LastName}" Width="120*" />
-                <DataGridTextColumn Header="Имя" Binding="{Binding FirstName}" Width="90*" />
-                <DataGridTextColumn Header="Отчество" Binding="{Binding MiddleName}" Width="130*" />
-                <DataGridTextColumn Header="Создан" Binding="{Binding CreatedAt}" IsReadOnly="True" Width="90*"/>
-            </DataGrid.Columns>
-        </DataGrid>
 
-        <Button
-            Content="Добавить"
+        <GroupBox
+            Header="Отдел"
+            Margin="10,10,0,0"
             HorizontalAlignment="Left"
-            Margin="10,0,0,10"
-            VerticalAlignment="Bottom"
-            Height="35"
-            Width="165"
-            Click="ButtonAddClick"/>
+            Width="275"
+            Height="219"
+            VerticalAlignment="Top">
+            <Grid>
+                <DataGrid
+                    x:Name="DataGridDepartments"
+                    AutoGenerateColumns="False"
+                    CanUserAddRows="False"
+                    CanUserDeleteRows="False"
+                    Margin="0,0,0,43">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn
+                            Header="#"
+                            Binding="{Binding DepartmentId}"
+                            Width="25*" />
+                        <DataGridTextColumn
+                            Header="Название"
+                            Binding="{Binding Name}"
+                            Width="100*" />
+                        <DataGridTextColumn
+                            Header="Создан"
+                            Binding="{Binding CreatedAt}"
+                            IsReadOnly="True"
+                            Width="110*"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+                <Button
+                    Content="Добавить"
+                    HorizontalAlignment="Left"
+                    Margin="10,0,0,11"
+                    Height="27"
+                    VerticalAlignment="Bottom"
+                    Width="100" Click="AddDepartmentClick"/>
+                <Button
+                    Content="Удалить"
+                    Margin="155,0,10,10"
+                    Height="27"
+                    VerticalAlignment="Bottom" Click="DelDepartmentClick"/>
+            </Grid>
+        </GroupBox>
+
+        <GroupBox
+            Header="Должность"
+            Margin="10,234,0,0"
+            HorizontalAlignment="Left"
+            Width="275"
+            Height="219"
+            VerticalAlignment="Top">
+            <Grid>
+                <DataGrid
+                    x:Name="DataGridPosts"
+                    AutoGenerateColumns="False"
+                    CanUserAddRows="False"
+                    CanUserDeleteRows="False"
+                    Margin="0,0,0,43">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn
+                            Header="#"
+                            Binding="{Binding PostId}"
+                            Width="25*" />
+                        <DataGridTextColumn
+                            Header="Название"
+                            Binding="{Binding Name}"
+                            Width="100*" />
+                        <DataGridTextColumn
+                            Header="Создан"
+                            Binding="{Binding CreatedAt}"
+                            IsReadOnly="True"
+                            Width="110*"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+                <Button
+                    Content="Добавить"
+                    HorizontalAlignment="Left"
+                    Margin="10,0,0,11"
+                    Height="27"
+                    VerticalAlignment="Bottom"
+                    Width="100" Click="AddPostClick"/>
+                <Button
+                    Content="Удалить"
+                    Margin="155,0,10,10"
+                    Height="27"
+                    VerticalAlignment="Bottom" Click="DelPostClick"/>
+            </Grid>
+        </GroupBox>
+
+        <GroupBox
+            Header="Сотрудники"
+            Margin="290,10,10,65">
+            <Grid>
+                <DataGrid
+                    x:Name="DataGridEmployees"
+                    AutoGenerateColumns="False"
+                    CanUserAddRows="False"
+                    CanUserDeleteRows="False"
+                    Margin="0,0,0,50">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn
+                            Header="Фамилия"
+                            Binding="{Binding LastName}"
+                            Width="120*" />
+                        <DataGridTextColumn
+                            Header="Имя"
+                            Binding="{Binding FirstName}"
+                            Width="90*" />
+                        <DataGridTextColumn
+                            Header="Отчество"
+                            Binding="{Binding MiddleName}"
+                            Width="130*" />
+                        <mah:DataGridNumericUpDownColumn
+                            Header="З/П"
+                            Binding="{Binding Salary}"
+                            StringFormat="0 RUB"
+                            Width="80*" />
+                        <DataGridTextColumn
+                            Header="Отдел"
+                            Binding="{Binding DepartmentId}"
+                            Width="90*"/>
+                        <DataGridTextColumn
+                            Header="Должность"
+                            Binding="{Binding PostId}"
+                            Width="100*"/>
+                        <DataGridTextColumn
+                            Header="Создан"
+                            Binding="{Binding CreatedAt}"
+                            IsReadOnly="True"
+                            Width="120*"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+                <Button
+                    Content="Добавить"
+                    HorizontalAlignment="Left"
+                    Margin="10,0,0,10"
+                    VerticalAlignment="Bottom"
+                    Height="35"
+                    Width="260"
+                    Click="AddEmployeeClick"/>
+
+                <Button
+                    Content="Удалить выбранные"
+                    Margin="0,0,10,10"
+                    Height="35"
+                    VerticalAlignment="Bottom"
+                    Click="DelEmployeeClick"
+                    HorizontalAlignment="Right"
+                    Width="260" />
+            </Grid>
+        </GroupBox>
 
         <Button
             Content="Применить изменения"
-            HorizontalAlignment="Left"
-            Margin="295,0,0,10"
-            Width="180" Height="35" VerticalAlignment="Bottom" Click="ButtonUpdateClick" />
-
-        <Button
-            Content="Удалить выбранные"
-            Margin="610,0,10,10"
-            Height="35"
-            VerticalAlignment="Bottom" Click="ButtonDeleteClick" />
+            Margin="10,0,10,10"
+            Height="40"
+            VerticalAlignment="Bottom"
+            Click="ButtonUpdateClick" />
 
     </Grid>
 </mah:MetroWindow>
