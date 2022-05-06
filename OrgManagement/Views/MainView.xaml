@@ -144,12 +144,12 @@
                             Width="105*"/>
                         <DataGridTextColumn
                             Header="Отпуск"
-                            Binding="{Binding CreatedAt, StringFormat={}{0} дн., Converter={StaticResource vacationDayCalculationConverter}}"
+                            Binding="{Binding AcceptedAt, StringFormat={}{0} дн., Converter={StaticResource vacationDayCalculationConverter}}"
+                            IsReadOnly="True"
                             Width="75*"/>
                         <DataGridTextColumn
-                            Header="Создан"
-                            Binding="{Binding CreatedAt}"
-                            IsReadOnly="True"
+                            Header="Принят"
+                            Binding="{Binding AcceptedAt}"
                             Width="125*"/>
                     </DataGrid.Columns>
                 </DataGrid>

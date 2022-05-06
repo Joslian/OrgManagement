@@ -22,6 +22,10 @@ namespace OrgManagement.Database.Models
 
         public Post()
         {
+            var now = DateTime.Now;
+
+            CreatedAt = now;
+            UpdatedAt = now;
         }
     }
 }

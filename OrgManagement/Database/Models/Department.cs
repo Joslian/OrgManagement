@@ -22,6 +22,10 @@ namespace OrgManagement.Database.Models
 
         public Department()
         {
+            var now = DateTime.Now;
+
+            CreatedAt = now;
+            UpdatedAt = now;
         }
     }
 }

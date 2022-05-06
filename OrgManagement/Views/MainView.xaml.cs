@@ -78,8 +78,6 @@ namespace OrgManagement.Views
             _orgContext.Departments.Add(new Department
             {
                 Name = "Сотрудник",
-                CreatedAt = DateTime.Now,
-                UpdatedAt = DateTime.Now,
             });
 
             _orgContext.SaveChanges();
@@ -109,8 +107,6 @@ namespace OrgManagement.Views
             _orgContext.Posts.Add(new Post
             {
                 Name = "Должность",
-                CreatedAt = DateTime.Now,
-                UpdatedAt = DateTime.Now,
             });
 
             _orgContext.SaveChanges();

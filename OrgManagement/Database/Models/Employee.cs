@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using OrgManagement.Helpers;
 
 namespace OrgManagement.Database.Models
 {
     [Table("employee")]
-    public class Employee
+    public class Employee : ViewModelBase
     {
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public uint EmployeeId { get; set; }
@@ -29,6 +30,18 @@ namespace OrgManagement.Database.Models
         [Column("post_id"), ForeignKey("post")]
         public uint? PostId { get; set; }
 
+        private DateTime? _acceptedAt;
+        [Column("accepted_at")]
+        public DateTime? AcceptedAt
+        {
+            get => _acceptedAt;
+            set
+            {
+                _acceptedAt = value;
+                NotifyPropertyChanged(() => AcceptedAt);
+            }
+        }
+
         [Column("created_at")]
         public DateTime? CreatedAt { get; set; }
 
@@ -45,6 +58,7 @@ namespace OrgManagement.Database.Models
 
             Salary = salary;
 
+            AcceptedAt = now;
             CreatedAt = now;
             UpdatedAt = now;
         }
