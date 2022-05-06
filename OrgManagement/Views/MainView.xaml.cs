@@ -33,8 +33,17 @@ namespace OrgManagement.Views
 
         private void AddEmployeeClick(object sender, RoutedEventArgs e)
         {
-            var department = DataGridDepartments.SelectedItem as Department;
-            var post = DataGridPosts.SelectedItem as Post;
+            if (DataGridDepartments.SelectedItem is not Department department)
+            {
+                MessageBox.Show("Отдел не выбран");
+                return;
+            }
+
+            if (DataGridPosts.SelectedItem is not Post post)
+            {
+                MessageBox.Show("Должность не выбрана");
+                return;
+            }
 
             _orgContext.Employees.Add(new Employee("Иванов", "Иван", "Иванович", 10_000)
             {

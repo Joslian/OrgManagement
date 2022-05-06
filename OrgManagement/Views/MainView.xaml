@@ -5,11 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
         xmlns:local="clr-namespace:OrgManagement.Views"
+        xmlns:converters="clr-namespace:OrgManagement.Converters"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
         Title="OrgManagement"
         Height="545"
         Width="1050">
+    <mah:MetroWindow.Resources>
+        <converters:VacationDayCalculationConverter x:Key="vacationDayCalculationConverter" />
+    </mah:MetroWindow.Resources>
     <Grid>
 
         <GroupBox
@@ -133,16 +137,20 @@
                         <DataGridTextColumn
                             Header="Отдел"
                             Binding="{Binding DepartmentId}"
-                            Width="90*"/>
+                            Width="65*"/>
                         <DataGridTextColumn
                             Header="Должность"
                             Binding="{Binding PostId}"
-                            Width="100*"/>
+                            Width="105*"/>
+                        <DataGridTextColumn
+                            Header="Отпуск"
+                            Binding="{Binding CreatedAt, StringFormat={}{0} дн., Converter={StaticResource vacationDayCalculationConverter}}"
+                            Width="75*"/>
                         <DataGridTextColumn
                             Header="Создан"
                             Binding="{Binding CreatedAt}"
                             IsReadOnly="True"
-                            Width="120*"/>
+                            Width="125*"/>
                     </DataGrid.Columns>
                 </DataGrid>
                 <Button
