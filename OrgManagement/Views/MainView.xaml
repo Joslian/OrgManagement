@@ -31,10 +31,10 @@
                     CanUserDeleteRows="False"
                     Margin="0,0,0,43">
                     <DataGrid.Columns>
-                        <DataGridTextColumn
+                        <!--<DataGridTextColumn
                             Header="#"
                             Binding="{Binding DepartmentId}"
-                            Width="25*" />
+                            Width="25*" />-->
                         <DataGridTextColumn
                             Header="Название"
                             Binding="{Binding Name}"
@@ -76,10 +76,10 @@
                     CanUserDeleteRows="False"
                     Margin="0,0,0,43">
                     <DataGrid.Columns>
-                        <DataGridTextColumn
+                        <!--<DataGridTextColumn
                             Header="#"
                             Binding="{Binding PostId}"
-                            Width="25*" />
+                            Width="25*" />-->
                         <DataGridTextColumn
                             Header="Название"
                             Binding="{Binding Name}"
@@ -159,7 +159,7 @@
                     Margin="10,0,0,10"
                     VerticalAlignment="Bottom"
                     Height="35"
-                    Width="260"
+                    Width="180"
                     Click="AddEmployeeClick"/>
 
                 <Button
@@ -169,7 +169,16 @@
                     VerticalAlignment="Bottom"
                     Click="DelEmployeeClick"
                     HorizontalAlignment="Right"
-                    Width="260" />
+                    Width="180" />
+
+                <Button
+                    Content="Экспорт в excel"
+                    Margin="0,0,0,10"
+                    Height="35"
+                    VerticalAlignment="Bottom"
+                    Click="ExportExcelClick"
+                    HorizontalAlignment="Center"
+                    Width="180" />
             </Grid>
         </GroupBox>
 

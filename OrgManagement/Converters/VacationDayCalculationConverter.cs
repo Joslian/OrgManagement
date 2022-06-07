@@ -12,11 +12,7 @@ namespace OrgManagement.Converters
         {
             if (value is DateTime createdAt)
             {
-                var now = DateTime.Now;
-
-                var delta = (now.Month + now.Year * 12) - (createdAt.Month + createdAt.Year * 12);
-
-                return Math.Round(delta * 2.33);
+                return Helpers.DateTimeConverter.CalcVacationDays(createdAt);
             }
 
             return Binding.DoNothing;
